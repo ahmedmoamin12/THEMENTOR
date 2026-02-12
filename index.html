@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE MENTOR | المنصة التعليمية الشاملة</title>
+    <title>THE MENTOR | خدمات إعداد مذكرات المعلمين</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -12,9 +12,9 @@
         :root {
             --primary-blue: #0f172a; 
             --gold: #d4af37;        
-            --soft-purple: #3b2d60; 
-            --text-light: #f8fafc;
             --accent-red: #e11d48;
+            --text-light: #f8fafc;
+            --success-green: #10b981;
         }
 
         * {
@@ -31,168 +31,126 @@
             overflow-x: hidden;
         }
 
-        /* زينة رمضانية */
-        .lanterns-top {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 50px;
-            pointer-events: none;
-        }
-        .lantern { width: 60px; filter: drop-shadow(0 0 10px var(--gold)); opacity: 0.8; }
-
-        .ramadan-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
-            z-index: -1;
-        }
-
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 20px;
+            padding: 100px 20px;
             text-align: center;
             background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
-                        url('https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=1600');
+                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600');
             background-size: cover;
+            position: relative;
         }
 
-        .logo-container {
-            position: relative;
-            margin-bottom: 30px;
-        }
-        
         .logo-img {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             border: 4px solid var(--gold);
-            padding: 10px;
             background: white;
+            margin-bottom: 25px;
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
         }
 
-        .hero h1 { font-size: 3.5rem; color: var(--gold); margin-bottom: 10px; font-weight: 900; }
+        .hero h1 { font-size: 3.5rem; color: var(--gold); font-weight: 900; }
         
-        /* شارات الإعلانات (Badges) */
-        .announcement {
+        .fast-delivery {
             display: inline-block;
-            background: var(--accent-red);
+            background: var(--success-green);
             color: white;
             padding: 10px 25px;
-            border-radius: 50px;
+            border-radius: 8px;
             font-weight: 700;
-            margin: 15px 0;
-            animation: pulse 2s infinite;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
         }
 
-        .coming-soon {
-            display: inline-block;
-            background: var(--soft-purple);
-            border: 1px solid var(--gold);
-            padding: 8px 20px;
-            border-radius: 50px;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
+        .hero p { font-size: 1.4rem; max-width: 800px; margin: 0 auto 30px; color: #cbd5e1; }
 
-        .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+        .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
         .btn {
-            padding: 14px 35px;
-            border-radius: 50px;
+            padding: 15px 40px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
             transition: 0.3s;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 1.1rem;
         }
-        .btn-fb { background-color: #1877f2; color: white; }
+        .btn-wa { background-color: #25d366; color: white; }
         .btn-call { background-color: var(--gold); color: var(--primary-blue); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-        /* Sections */
-        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.5rem; color: var(--gold); margin-bottom: 50px; }
+        /* Services Section */
+        .section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.8rem; color: var(--gold); margin-bottom: 60px; }
 
-        .about-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 30px;
-            border-right: 5px solid var(--gold);
-            backdrop-filter: blur(10px);
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
-        /* Features */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
-        .feat-card {
-            background: rgba(59, 45, 96, 0.3);
-            padding: 30px;
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 40px;
             border-radius: 20px;
             text-align: center;
-            transition: 0.4s;
+            transition: 0.3s;
         }
-        .feat-card:hover { transform: translateY(-10px); background: rgba(59, 45, 96, 0.5); }
-        .feat-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
+        .service-card:hover { 
+            background: rgba(212, 175, 55, 0.05); 
+            border-color: var(--gold);
+            transform: scale(1.02);
+        }
+        .service-card i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
+        .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .service-card p { color: #94a3b8; }
 
-        /* Table */
-        .table-container { overflow-x: auto; background: rgba(0,0,0,0.3); border-radius: 20px; padding: 10px; border: 1px solid var(--gold); }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 20px; text-align: center; }
-        th { color: var(--gold); border-bottom: 2px solid var(--gold); }
+        /* Steps Section */
+        .steps { background: #080c14; padding: 80px 20px; text-align: center; }
+        .step-item { margin-bottom: 30px; }
+        .step-num { 
+            width: 50px; height: 50px; background: var(--gold); color: var(--primary-blue);
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 50%; font-weight: 900; font-size: 1.5rem; margin-bottom: 15px;
+        }
 
+        /* Footer */
         footer {
             background: #020617;
             padding: 60px 20px;
             text-align: center;
             border-top: 2px solid var(--gold);
         }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+        .footer-logo { font-size: 2rem; color: var(--gold); font-weight: 900; margin-bottom: 10px; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .lantern { width: 40px; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="ramadan-bg"></div>
-
-    <div class="lanterns-top">
-        <img src="https://cdn-icons-png.flaticon.com/512/3064/3064762.png" class="lantern" alt="فانوس">
-        <img src="https://cdn-icons-png.flaticon.com/512/3064/3064762.png" class="lantern" alt="فانوس">
-    </div>
-
     <section class="hero animate__animated animate__fadeIn">
         <div class="hero-content">
-            <div class="logo-container">
-                <img src="https://ui-avatars.com/api/?name=The+Mentor&background=0f172a&color=d4af37&size=200&bold=true" alt="THE MENTOR Logo" class="logo-img">
-            </div>
+            <img src="https://ui-avatars.com/api/?name=The+Mentor&background=0f172a&color=d4af37&size=200&bold=true" alt="Logo" class="logo-img">
             <h1>THE MENTOR</h1>
-            <div class="announcement">
-                🔥 متاح الآن: مراجعات الكيمياء - الصف الثالث الثانوي
+            <div class="fast-delivery animate__animated animate__flash animate__infinite">
+                🚀 الاستلام في نفس اليوم (خلال ساعات فقط!)
             </div>
-            <br>
-            <div class="coming-soon">
-                ✨ انتظروا قريباً: العلوم المتكاملة | العلوم | الكيمياء
-            </div>
-            
-            <p style="margin-top: 30px; font-size: 1.2rem; color: #94a3b8;">المنصة التعليمية الرائدة لتطوير مهارات الطلاب وتفوقهم الدراسي</p>
+            <p>نقوم بتصميم وتنسيق مذكراتك الدراسية باحترافية تامة تحمل اسمك، شعارك، وبياناتك الخاصة لتظهر لطلابك بأفضل صورة.</p>
             
             <div class="btn-group">
-                <a href="https://www.facebook.com/thementorahmed" target="_blank" class="btn btn-fb">
-                    <i class="fab fa-facebook"></i> تابع صفحتنا على فيسبوك
+                <a href="https://wa.me/201020634409" class="btn btn-wa">
+                    <i class="fab fa-whatsapp"></i> اطلب مذكرتك الآن
                 </a>
                 <a href="tel:01020634409" class="btn btn-call">
                     <i class="fas fa-phone-alt"></i> 01020634409
@@ -202,80 +160,79 @@
     </section>
 
     <section class="section">
-        <h2 class="section-title">عن THE MENTOR</h2>
-        <div class="about-box">
-            <p style="font-size: 1.3rem; text-align: justify;">
-                منصة <strong>THE MENTOR</strong> هي رؤية تعليمية تهدف إلى بناء جيل واعٍ ومتمكن من أدواته العلمية. نحن لا نقدم مجرد دروس، بل نقدم نهجاً متكاملاً في "الكيمياء" و"العلوم" يركز على الفهم العميق والتحليل. تحت إشراف نخبة من المتخصصين، نسعى لتوفير بيئة تعليمية تفاعلية تدعم الطالب في كل خطوة نحو النجاح.
-            </p>
-        </div>
-
-        <div class="features-grid">
-            <div class="feat-card">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>مراجعات شاملة</h3>
-                <p>تغطية كاملة لكل جزيئات المنهج بأسلوب مبسط.</p>
+        <h2 class="section-title">خدماتنا للمعلمين المتميزين</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-pen-nib"></i>
+                <h3>تنسيق كامل للمذكرات</h3>
+                <p>كتابة وتنسيق المادة العلمية وتوزيعها بشكل مريح للعين يساعد الطالب على المذاكرة.</p>
             </div>
-            <div class="feat-card">
-                <i class="fas fa-microscope"></i>
-                <h3>علوم متكاملة</h3>
-                <p>قريباً، تجربة تعليمية فريدة في العلوم المتكاملة.</p>
+            <div class="service-card">
+                <i class="fas fa-id-card"></i>
+                <h3>هوية المعلم الخاصة</h3>
+                <p>إضافة اسمك، صورتك، أرقام تواصلك، وشعارك الخاص على كل صفحة من صفحات المذكرة.</p>
             </div>
-            <div class="feat-card">
-                <i class="fas fa-user-check"></i>
-                <h3>دعم مستمر</h3>
-                <p>متابعة دورية للرد على استفسارات جميع الطلاب.</p>
+            <div class="service-card">
+                <i class="fas fa-bolt"></i>
+                <h3>سرعة تنفيذ فائقة</h3>
+                <p>نحن نقدر وقت المعلم، لذا نضمن لك استلام النسخة النهائية الجاهزة للطباعة في نفس اليوم.</p>
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <h2 class="section-title">مواعيد شهر رمضان 🌙</h2>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>المرحلة</th>
-                        <th>الأيام</th>
-                        <th>التوقيت</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>الثالث الثانوي (مراجعات)</td>
-                        <td>الأربعاء والجمعة</td>
-                        <td>09:00 مساءً</td>
-                    </tr>
-                    <tr>
-                        <td>المراحل الأخرى</td>
-                        <td colspan="2">يتم التنسيق عبر الصفحة الرسمية</td>
-                    </tr>
-                </tbody>
-            </table>
+    <section class="steps">
+        <div class="section">
+            <h2 class="section-title">كيف تحصل على مذكرتك؟</h2>
+            <div class="services-grid">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h3>أرسل المحتوى</h3>
+                    <p>أرسل لنا مادتك العلمية (وورد أو صور أو ملفات) عبر واتساب.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h3>نبدأ التنسيق</h3>
+                    <p>فريقنا يصمم المذكرة ويضيف بياناتك وهويتك الخاصة فوراً.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h3>استلم وراجع</h3>
+                    <p>نرسل لك النسخة النهائية في نفس اليوم لمراجعتها واعتمادها.</p>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <section class="section" style="text-align: center;">
+        <h2 style="color: var(--gold);">هل أنت جاهز لتطوير مذكراتك؟</h2>
+        <p style="margin: 20px 0 40px;">انضم لمئات المعلمين الذين يثقون في خدمات THE MENTOR في بني سويف.</p>
+        <a href="https://www.facebook.com/thementorahmed" class="btn btn-call" style="display: inline-flex; padding: 20px 60px;">
+            تواصل معنا عبر فيسبوك
+        </a>
     </section>
 
     <footer>
-        <h2 style="color: var(--gold); margin-bottom: 20px;">THE MENTOR</h2>
-        <p>بني سويف | التواصل: 01020634409</p>
-        <div style="margin: 25px 0;">
-            <a href="https://www.facebook.com/thementorahmed" style="color: white; font-size: 2rem; margin: 0 15px;"><i class="fab fa-facebook"></i></a>
-            <a href="https://wa.me/201020634409" style="color: #25d366; font-size: 2rem; margin: 0 15px;"><i class="fab fa-whatsapp"></i></a>
+        <div class="footer-logo">THE MENTOR</div>
+        <p>خدمات المذكرات التعليمية الاحترافية</p>
+        <p style="margin: 10px 0;">القاهرة | الهاتف: 01020634409</p>
+        <div style="margin: 20px 0;">
+            <a href="https://www.facebook.com/thementorahmed" style="color: white; font-size: 1.8rem; margin: 0 15px;"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/201020634409" style="color: #25d366; font-size: 1.8rem; margin: 0 15px;"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p style="opacity: 0.5;">جميع الحقوق محفوظة لـ THE MENTOR © 2026</p>
-        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--gold);">رمضان كريم 🌙</p>
+        <p style="opacity: 0.4; font-size: 0.9rem;">جميع الحقوق محفوظة لـ THE MENTOR © 2026</p>
     </footer>
 
     <script>
-        // Smooth appearance
-        window.addEventListener('scroll', () => {
-            const cards = document.querySelectorAll('.feat-card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    card.classList.add('animate__animated', 'animate__fadeInUp');
+        // تأثير الحركة عند التمرير
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
                 }
             });
         });
+
+        document.querySelectorAll('.service-card, .step-item').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
